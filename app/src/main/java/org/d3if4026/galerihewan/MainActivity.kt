@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Adapter
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import org.d3if4026.galerihewan.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Log.d("MainActivity", "jumlah data" + getData().size)
+        with(binding.recyclerView){
+            addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
+            adapter = MainAdapter(getData())
+            setHasFixedSize(true)
+        }
     }
     private fun getData() : List<Hewan> {
         return  listOf(
