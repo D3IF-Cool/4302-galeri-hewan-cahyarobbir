@@ -7,6 +7,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "org.d3if4026.galerihewan"
         minSdkVersion 19
         targetSdkVersion 29
@@ -35,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
